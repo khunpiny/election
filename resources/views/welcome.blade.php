@@ -132,7 +132,7 @@
                 <div class="title m-b-md">
                     <span class="borderlogin">เก็บคะแนนเสียงเลือกตั้ง</span><br><br>
                     <div class="links">
-                        <a href="{{ url('home') }}" class="btn default">Master</a>
+                        <a href="{{ url('login') }}" class="btn default">Master</a>
                         <a href="{{ url('header') }}" class="btn default">Header</a>
                         <a href="{{ url('admin') }}" class="btn default">Admin</a>
                     </div>

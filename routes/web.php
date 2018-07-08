@@ -19,25 +19,66 @@ Route::get('/admin/score', function () {
     return view('admin/admin_score');
 });
 
-Route::get('/master/add', function () {
-    return view('master/master_add');
-});
 
 Auth::routes();
+// Route::get('/changePassword','HomeController@showChangePasswordForm');
+// Route::post('/changePassword','HomeController@changePassword')->name('changePassword');
+
+
 // master
 Route::group(['middleware' => ['auth']], function () {
   Route::get('/home', 'HomeController@index')->name('home');
   Route::get('/master/home', 'HomeController@show');
+  Route::get('/profile','MasterController@profile');
+  Route::post('/profile', 'MasterController@update_avatar');
+  Route::get('master/register', 'MasterController@index');
+  Route::post('master/add', 'MasterController@add_header');
+  Route::get('/master/edit/{id}', 'MasterController@edit_header');
+  Route::post('/master/update','MasterController@update_header');
+  Route::get('/master/block/{id}', 'MasterController@block_header');
+  Route::get('/master/show/{id}','MasterController@master_showadmin');
+  Route::get('/master/showarea/{id}', 'MasterController@master_showarea');
+  Route::post('/home','MasterController@search');
+  Route::get('master/changePassword','MasterController@showChangePasswordForm');
+  Route::post('/changePassword','MasterController@changePassword')->name('changePassword');
 });
 //admin
 Route::group(['prefix' => 'admin'], function(){
   Route::get('/login', 'AuthAdmin\LoginController@ShowLoginForm')->name('admin.login');
   Route::post('/login', 'AuthAdmin\LoginController@login')->name('admin.login.submit');
   Route::get('/', 'AdminController@index')->name('admin.home');
+  Route::post('/','AdminController@search');
+  Route::get('/profile','AdminController@profile');
+  Route::post('/profile', 'AdminController@update_avatar');
+  Route::get('/addscore', 'AdminController@index')->name('admin.home');
+  Route::post('/addscore','AdminController@addscore');
+  Route::post('/action','AdminController@action');
+  Route::post('/scoresubmit','AdminController@scoresubmit');
+  Route::get('/showscore','AdminController@showscore');
+  Route::get('/changePassword','AdminController@showChangePasswordForm');
+  Route::post('/changePassword','AdminController@changePassword')->name('changePassword');
+
 });
 //header
 Route::group(['prefix' => 'header'], function(){
   Route::get('/login', 'AuthHeader\LoginController@ShowLoginForm')->name('header.login');
   Route::post('/login', 'AuthHeader\LoginController@login')->name('header.login.submit');
   Route::get('/', 'HeaderController@index')->name('header.home');
+  Route::get('register', 'HeaderController@register');
+  Route::post('add','HeaderController@add_admin');
+  Route::get('/edit/{id}', 'HeaderController@edit_admin');
+  Route::post('update','HeaderController@update_admin');
+  Route::get('/block/{id}', 'HeaderController@block_admin');
+  Route::get('/add', 'HeaderController@area_admin');
+  Route::get('/addarea','HeaderController@addarea');
+  Route::get('/show/{admin_id}','HeaderController@showarea');
+  Route::get('delete/{id}', 'HeaderController@deletearea');
+  Route::get('editarea/{id}','HeaderController@editarea');
+  Route::post('editarea/{id}','HeaderController@updatearea');
+  Route::get('/selectarea','HeaderController@selectarea');
+  Route::get('/profile','HeaderController@profile');
+  Route::post('/profile', 'HeaderController@update_avatar');
+  Route::post('/','HeaderController@search');
+  Route::get('/changePassword','HeaderController@showChangePasswordForm');
+  Route::post('/changePassword','HeaderController@changePassword')->name('changePassword');
 });

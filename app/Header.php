@@ -17,7 +17,7 @@ class Header extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'header_name', 'master_id', 'tel', 'province', 'amphoe', 'district', 'image', 'email', 'password', 'status',
     ];
 
     /**

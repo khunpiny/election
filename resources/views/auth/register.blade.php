@@ -61,6 +61,64 @@
                             </div>
                         </div>
 
+                        <div class="form-group row">
+                            <label  class="col-md-4 col-form-label text-md-right">{{ __('master name') }}</label>
+
+                            <div class="col-md-6">
+                                <input  type="text" class="form-control{{ $errors->has('master_name') ? ' is-invalid' : '' }}" name="master_name" value="{{ old('master_name') }}" required autofocus>
+
+                                @if ($errors->has('master_name'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('master_name') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label  class="col-md-4 col-form-label text-md-right">{{ __('party name') }}</label>
+
+                            <div class="col-md-6">
+                                <input  type="text" class="form-control{{ $errors->has('party_name') ? ' is-invalid' : '' }}" name="party_name" value="{{ old('party_name') }}" required autofocus>
+
+                                @if ($errors->has('party_name'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('party_name') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+
+                        <div class="form-group row">
+                            <label  class="col-md-4 col-form-label text-md-right">{{ __('tel') }}</label>
+
+                            <div class="col-md-6">
+                                <input  type="text" class="form-control{{ $errors->has('tel') ? ' is-invalid' : '' }}" name="tel" value="{{ old('tel') }}" required autofocus>
+
+                                @if ($errors->has('tel'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('tel') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label  class="col-md-4 col-form-label text-md-right">{{ __('province') }}</label>
+
+                            <div class="col-md-6">
+                                <input  type="text" class="form-control{{ $errors->has('province') ? ' is-invalid' : '' }}" name="province" value="{{ old('province') }}" required autofocus>
+
+                                @if ($errors->has('province'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('province') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
