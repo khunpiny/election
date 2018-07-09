@@ -23,6 +23,7 @@ class CreateHeadersTable extends Migration
             $table->string('province');
             $table->string('amphoe');
             $table->string('district');
+            $table->string('comment')->nullable();
             $table->text('image');
             $table->string('email')->unique();
             $table->enum('status', ['0', '1']);

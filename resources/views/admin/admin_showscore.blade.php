@@ -2,14 +2,15 @@
 @section('content')
 <div class="container">
   <ol class="breadcrumb">
-        <h7>Admin</h7>
+          <li class="breadcrumb-item"><a href="{{url('/admin')}}">หน้าแรก</a></li>
+          <li class="breadcrumb-item active">เพิ่มผู้ดูแลเขต</li>
   </ol>
   <ul class="nav nav-tabs">
   <li class="nav-item">
     <a class="nav-link " href="{{url('admin')}}">ข้อมูลเขตที่รับผิดชอบทั้งหมด</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link active" href="{{url('admin/showscore')}}">สรุปรายการคะแนนเสียงทั้งหมด</a>
+    <a class="nav-link active" href="{{url('admin/showscore')}}">รายการคะแนนเสียงทั้งหมด</a>
   </li>
 </ul><br>
 @if(isset($scores))
@@ -19,8 +20,8 @@
           <div align="right">
             <!-- admin -->
             <?php $index = 1 ;?>
-            <button type="submit" name="update" value="update" id="update{{$scores[0]->score_id}}" class="btn btn-info btn-md" disabled="disabled"><span class="glyphicon glyphicon-edit"></span> อัพเดทคะแนน</button>
-      			<button type="submit" name="delete" value="delete" id="delete{{$scores[0]->score_id}}" class="btn btn-danger btn-md" disabled="disabled" onclick="return confirm('ท่านต้องการลบคะแนนเขตนี้ใช่หรือไม่')">
+            <button type="submit" name="update" value="update" id="update" class="btn btn-info btn-md" disabled="disabled"><span class="glyphicon glyphicon-edit"></span> อัพเดทคะแนน</button>
+      			<button type="submit" name="delete" value="delete" id="delete" class="btn btn-danger btn-md" disabled="disabled" onclick="return confirm('ท่านต้องการลบคะแนนเขตนี้ใช่หรือไม่')">
             ลบคะแนน</button>
             {{csrf_field()}}
           </div>
@@ -95,17 +96,21 @@
   });
 
   $('input').on("click", function(e){
+    var numbercheckbox = $('input[type=checkbox]').filter(':checked').length;
   	var idcheck = e.target.id;
+    var group = $(this).data("group");
   		if(this.checked){
   			$('#score'+idcheck).removeAttr("disabled");
-        $('#update'+idcheck).removeAttr("disabled");
-        $('#delete'+idcheck).removeAttr("disabled");
+        $('#update').removeAttr("disabled");
+        $('#delete').removeAttr("disabled");
 
   		}
   		else{
   			$('#score'+idcheck).attr("disabled", true);
-      	$('#update'+idcheck).attr("disabled", true);
-        $('#delete'+idcheck).attr("disabled", true);
+        if(numbercheckbox == 0){
+          $('#update').attr("disabled", true);
+          $('#delete').attr("disabled", true);
+        }
 
   		}
   });

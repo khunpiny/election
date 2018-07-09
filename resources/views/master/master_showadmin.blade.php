@@ -4,10 +4,10 @@
 <div class="container">
   <ul class="nav nav-tabs">
   <li class="nav-item">
-    <a class="nav-link active" href="{{url('/home')}}">ข้อมูลสมาชิกทั้งหมด</a>
+    <a class="nav-link active" href="{{url('master/home')}}">ข้อมูลสมาชิกทั้งหมด</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="#menu1">สรุปรายการคะแนนเสียงทั้งหมด</a>
+    <a class="nav-link" href="#menu1">รายการคะแนนเสียงทั้งหมด</a>
   </li>
 </ul><br>
 <div class="row">

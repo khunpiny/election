@@ -27,10 +27,10 @@ Auth::routes();
 
 // master
 Route::group(['middleware' => ['auth']], function () {
-  Route::get('/home', 'HomeController@index')->name('home');
-  Route::get('/master/home', 'HomeController@show');
-  Route::get('/profile','MasterController@profile');
-  Route::post('/profile', 'MasterController@update_avatar');
+  Route::get('/master/home', 'HomeController@index')->name('home');
+  // Route::get('/master/home', 'HomeController@show');
+  Route::get('master/profile','MasterController@profile');
+  Route::post('master/profile', 'MasterController@update_avatar');
   Route::get('master/register', 'MasterController@index');
   Route::post('master/add', 'MasterController@add_header');
   Route::get('/master/edit/{id}', 'MasterController@edit_header');
@@ -38,9 +38,9 @@ Route::group(['middleware' => ['auth']], function () {
   Route::get('/master/block/{id}', 'MasterController@block_header');
   Route::get('/master/show/{id}','MasterController@master_showadmin');
   Route::get('/master/showarea/{id}', 'MasterController@master_showarea');
-  Route::post('/home','MasterController@search');
+  Route::post('master/home','MasterController@search');
   Route::get('master/changePassword','MasterController@showChangePasswordForm');
-  Route::post('/changePassword','MasterController@changePassword')->name('changePassword');
+  Route::post('master/changePassword','MasterController@changePassword')->name('changePassword');
 });
 //admin
 Route::group(['prefix' => 'admin'], function(){

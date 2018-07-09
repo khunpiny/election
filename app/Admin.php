@@ -17,7 +17,7 @@ class Admin extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'admin_name', 'header_id', 'email', 'tel', 'image', 'password', 'party_name', 'status',
+        'name', 'admin_name', 'header_id', 'email', 'tel', 'image', 'password', 'party_name', 'status', 'comment',
     ];
 
     /**
@@ -28,4 +28,9 @@ class Admin extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function score_admin()
+    {
+        return $this->hasMany('App\Score', 'admin_id', 'id');
+    }
 }

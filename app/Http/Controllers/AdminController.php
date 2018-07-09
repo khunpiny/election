@@ -63,7 +63,6 @@ class AdminController extends Controller
                    ->orderBy('updated_at','desc')
                    ->paginate($NUM_PAGE);
       $query = DB::select('SELECT areas.area_name,scores.admin_id,SUM(scores.score) AS sumscore FROM scores LEFT JOIN areas ON scores.area_id = areas.id GROUP BY admin_id,area_name');
-    
 
       $page = $request->input('page');
       $page = ($page != null)?$page:1;

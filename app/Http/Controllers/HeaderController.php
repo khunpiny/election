@@ -63,7 +63,7 @@ class HeaderController extends Controller
       $header = Header::findOrFail(Auth::user()->id);
       $page = $request->input('page');
       $page = ($page != null)?$page:1;
-
+      
       return view('header/header_home')->with('admins',$admins)
                                        ->with('header',$header)
                                        ->with('page',$page)

@@ -3,10 +3,10 @@
 @section('content')
 <div class="container">
   <ol class="breadcrumb">
-  				<li class="breadcrumb-item"><a href="{{url('/home')}}">หน้าแรก</a></li>
+  				<li class="breadcrumb-item"><a href="{{url('master/home')}}">หน้าแรก</a></li>
   				<li class="breadcrumb-item active">แก้ไขข้อมูล</li>
   </ol>
-  <form enctype="multipart/form-data" action="{{url('/profile')}}" method="POST">
+  <form enctype="multipart/form-data" action="{{url('master/profile')}}" method="POST">
 <div class="row">
 <div class="col-md-3">
 <div class="card">

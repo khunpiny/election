@@ -17,7 +17,7 @@ class Header extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'header_name', 'master_id', 'tel', 'province', 'amphoe', 'district', 'image', 'email', 'password', 'status',
+        'name', 'header_name', 'master_id', 'tel', 'province', 'amphoe', 'district', 'image', 'email', 'password', 'status', 'comment',
     ];
 
     /**
@@ -28,4 +28,10 @@ class Header extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function score_header()
+    {
+        return $this->hasMany('App\Score', 'id', 'master_id');
+    }
+
 }

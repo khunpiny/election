@@ -20,6 +20,7 @@ class CreateAdminsTable extends Migration
             $table->integer('header_id')->unsigned();
             $table->foreign('header_id')->references('id')->on('headers')->onDelete('cascade')->onUpdate('cascade');
             $table->string('tel');
+            $table->string('comment')->nullable();
             $table->text('image');
             $table->string('email')->unique();
             $table->enum('status', ['0', '1']);

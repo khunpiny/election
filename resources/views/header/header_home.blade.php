@@ -9,7 +9,7 @@
     <a class="nav-link active" href="{{url('/header')}}">ข้อมูลสมาชิกทั้งหมด</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="#menu1">สรุปรายการคะแนนเสียงทั้งหมด</a>
+    <a class="nav-link" href="#menu1">รายการคะแนนเสียงทั้งหมด</a>
   </li>
   <li class="nav-item">
     <a class="nav-link" href="{{url('header/selectarea')}}">กรอกข้อมูลเขตการดูแล</a>
@@ -59,7 +59,13 @@
                             <td>{{$header->district}}</td>
                             <td>{{$header->amphoe}}</td>
                             <td>{{$header->province}}</td>
-                            <td>10</td>
+                            <?php $sum = 0;
+                              foreach ($admin->score_admin as $key => $value) {
+                                $sum = $sum + $value->score;
+                              }
+                            ?>
+
+                            <td>{{ $sum }}</td>
                             <td>
                               <a href="{{url('header/show/')}}/{{$admin->id}}" class="btn btn-info btn-sm"><i class="fa fa-eye"></i> แสดง</a>
                               <a href="header/edit/{{$admin->id}}" class="btn btn-warning btn-sm"><i class="fa fa-pencil"></i> แก้ไข</a>

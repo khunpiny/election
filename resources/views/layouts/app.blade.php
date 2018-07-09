@@ -28,7 +28,7 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
+                <a class="navbar-brand" href="{{ url('/master/home') }}">
                     เก็บคะแนนเสียงเลือกตั้ง
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -58,7 +58,7 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                   <a class="dropdown-item" href="{{url('/profile')}}">
+                                   <a class="dropdown-item" href="{{url('master/profile')}}">
                                       แก้ไขโปรไฟล์
                                    </a>
                                    <a class="dropdown-item" href="{{url('/master/changePassword')}}">

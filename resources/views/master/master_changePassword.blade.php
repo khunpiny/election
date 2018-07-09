@@ -3,7 +3,7 @@
 
 <div class="container">
   <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="{{url('/home')}}">หน้าแรก</a></li>
+          <li class="breadcrumb-item"><a href="{{url('master/home')}}">หน้าแรก</a></li>
           <li class="breadcrumb-item active">เปลี่ยนรหัสผ่าน</li>
   </ol>
   <div class="row justify-content-center">
@@ -24,7 +24,7 @@
               <div class="row">
                 <div class="col-md-3"></div>
                 <div class="col-md-6">
-              <form class="form-horizontal" method="POST" action="{{ url('/changePassword') }}">
+              <form class="form-horizontal" method="POST" action="{{ url('master/changePassword') }}">
                 {{ csrf_field() }}
                 <div class="form-group{{ $errors->has('current-password') ? ' has-error' : '' }}">
                   <label for="new-password" class="col-md-4 control-label">รหัสผ่านเก่า</label>

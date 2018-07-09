@@ -9,7 +9,7 @@
     <a class="nav-link active" href="{{url('admin')}}">ข้อมูลเขตที่รับผิดชอบทั้งหมด</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="{{url('admin/showscore')}}">สรุปรายการคะแนนเสียงทั้งหมด</a>
+    <a class="nav-link" href="{{url('admin/showscore')}}">รายการคะแนนเสียงทั้งหมด</a>
   </li>
 </ul><br>
 <div class="row">
@@ -76,7 +76,14 @@
                           <td>{{$header->district}}</td>
                           <td>{{$header->amphoe}}</td>
                           <td>{{$header->province}}</td>
+                          @foreach($query as $q)
+                          @if($q->area_name==$area->area_name)
+                          <td>{{$q->sumscore}}</td>
+                          @break
+                          @elseif($loop->last)
                           <td></td>
+                          @endif
+                          @endforeach
                         </tr>
                       </tbody>
                       @endforeach

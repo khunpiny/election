@@ -7,7 +7,7 @@
     <a class="nav-link active" href="{{url('/home')}}">ข้อมูลสมาชิกทั้งหมด</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="#menu1">สรุปรายการคะแนนเสียงทั้งหมด</a>
+    <a class="nav-link" href="#menu1">รายการคะแนนเสียงทั้งหมด</a>
   </li>
 </ul><br>
 <div class="row">
@@ -59,10 +59,10 @@
                             <td>
 
                               <a href="{{url('master/show/')}}/{{$header->id}}" class="btn btn-info btn-sm"><i class="fa fa-eye"></i> แสดง</a>
-                              <a href="master/edit/{{$header->id}}" class="btn btn-warning btn-sm"><i class="fa fa-pencil"></i> แก้ไข</a>
+                              <a href="{{url('master/edit/')}}/{{$header->id}}" class="btn btn-warning btn-sm"><i class="fa fa-pencil"></i> แก้ไข</a>
                               @if($header->status == "1")
 
-                              <a href="{{url('master/block')}}/{{$header->id}}" class="btn btn-success btn-sm" onclick="myFunction()"><i class="fa fa-trash"></i>บล็อก</a>
+                              <a href="{{url('master/block')}}/{{$header->id}}" class="btn btn-success btn-sm" onclick="myFunction();return false;"><i class="fa fa-trash"></i>บล็อก</a>
                               @else
                               <a href="{{url('master/block')}}/{{$header->id}}" class="btn btn-danger btn-sm" onclick="return confirm('ท่านต้องการปลดบล็อกสมาชิกใช่หรือไม่ ?')"><i class="fa fa-trash"></i>ปลดบล็อก</a>
                               @endif
@@ -90,7 +90,7 @@
 </div>
   <div class="col-sm-3">
   <div class="card">
-    <form action="{{url('/home')}}" method="post" enctype="multipart/form-data">
+    <form action="{{url('master/home')}}" method="post" enctype="multipart/form-data">
       {{ csrf_field() }}
     <h6 class="card-header">ค้นหาสมาชิก</h6>
       <div class="card-body">

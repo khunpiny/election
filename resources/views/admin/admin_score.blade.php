@@ -8,7 +8,7 @@
     <a class="nav-link active" href="{{url('/score')}}">ข้อมูลสมาชิกทั้งหมด</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="#menu1">สรุปรายการคะแนนเสียงทั้งหมด</a>
+    <a class="nav-link" href="#menu1">รายการคะแนนเสียงทั้งหมด</a>
   </li>
   <li class="nav-item">
     <a class="nav-link" href="{{url('/master/add')}}">เพิ่ม Header</a>

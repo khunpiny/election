@@ -2,7 +2,7 @@
 @section('content')
 <div class="container">
   <ol class="breadcrumb">
-  				<li class="breadcrumb-item"><a href="{{url('/home')}}">หน้าแรก</a></li>
+  				<li class="breadcrumb-item"><a href="{{url('/header')}}">หน้าแรก</a></li>
   				<li class="breadcrumb-item active">แก้ไขข้อมูล</li>
   </ol>
   <form enctype="multipart/form-data" action="{{url('header/profile')}}" method="POST">

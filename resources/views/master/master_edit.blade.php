@@ -18,7 +18,7 @@
   <div id="app">
       <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
           <div class="container">
-              <a class="navbar-brand" href="{{ url('/') }}">
+              <a class="navbar-brand" href="{{ url('/master/home') }}">
                   เก็บคะแนนเสียงเลือกตั้ง
               </a>
               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -72,7 +72,7 @@
 
 <div class="container">
   <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="{{url('/home')}}">หน้าแรก</a></li>
+          <li class="breadcrumb-item"><a href="{{url('master/home')}}">หน้าแรก</a></li>
           <li class="breadcrumb-item active">แก้ไขข้อมูล {{$header->header_name}}</li>
   </ol>
 <form action="{{url('/master/update')}}" method="POST" id="demo1" class="demo" style="display:none;" autocomplete="off" enctype="multipart/form-data">
