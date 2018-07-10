@@ -124,7 +124,14 @@
                             <td>{{Auth::user()->district}}</td>
                             <td>{{Auth::user()->amphoe}}</td>
                             <td>{{Auth::user()->province}}</td>
-                            <td></td>
+														@foreach($scores as $row)
+														@if($row->area_id==$area->id)
+                            <td>{{$row->score}}</td>
+														@break
+	                          @elseif($loop->last)
+	                          <td></td>
+	                          @endif
+														@endforeach
                             <td>
                             <center>
 
@@ -136,6 +143,7 @@
                             </td>
                           </tr>
                         </tbody>
+
                         @endforeach
                       </table><!--/.table-->
                     </div><!--/.table-responsive-->

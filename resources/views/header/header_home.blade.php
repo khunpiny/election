@@ -9,7 +9,7 @@
     <a class="nav-link active" href="{{url('/header')}}">ข้อมูลสมาชิกทั้งหมด</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="#menu1">รายการคะแนนเสียงทั้งหมด</a>
+    <a class="nav-link" href="{{url('/header/total')}}">รายการคะแนนเสียงทั้งหมด</a>
   </li>
   <li class="nav-item">
     <a class="nav-link" href="{{url('header/selectarea')}}">กรอกข้อมูลเขตการดูแล</a>

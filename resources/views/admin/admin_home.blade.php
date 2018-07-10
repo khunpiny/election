@@ -151,6 +151,7 @@
             <p>
               <label>ตำบล</label>
               <input class="form-control" name="district" type="text" value="{{$header_add->district}}" disabled>
+              <input type="hidden" name="header_id" value="{{$header_add->id}}">
             </p>
             <p>
               <label>จังหวัด</label>

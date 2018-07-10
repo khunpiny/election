@@ -29,7 +29,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-      protected $redirectTo = 'home';
+      protected $redirectTo = 'master/home';
 
     /**
      * Create a new controller instance.
@@ -55,8 +55,8 @@ class RegisterController extends Controller
             'password' => 'required|string|min:6|confirmed',
             'master_name' => 'required|string|max:255',
             'party_name' => 'required|string|max:255',
-            'tel' => 'required|string|max:12',
-            'province' => 'required|string|max:12',
+            'tel' => 'required|regex:/(0)[0-9]{9}/',
+            'province' => 'required|string|max:255',
         ]);
     }
 

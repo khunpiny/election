@@ -41,6 +41,8 @@ Route::group(['middleware' => ['auth']], function () {
   Route::post('master/home','MasterController@search');
   Route::get('master/changePassword','MasterController@showChangePasswordForm');
   Route::post('master/changePassword','MasterController@changePassword')->name('changePassword');
+  Route::get('master/total','MasterController@score_total');
+  Route::post('master/block/{id}','MasterController@block');
 });
 //admin
 Route::group(['prefix' => 'admin'], function(){
@@ -81,4 +83,5 @@ Route::group(['prefix' => 'header'], function(){
   Route::post('/','HeaderController@search');
   Route::get('/changePassword','HeaderController@showChangePasswordForm');
   Route::post('/changePassword','HeaderController@changePassword')->name('changePassword');
+  Route::get('/total','HeaderController@score_total');
 });

@@ -113,12 +113,11 @@ class MasterController extends Controller
 
     public function block_header(Request $request,$id)
     {
-      dd($request);
       $header = Header::findOrFail($id);
       if($header->status == '1' )
         $header->update(['status' => '0']);
       else
-        $header->update(['status' => '1']);
+        $header->update(['status' => '1','comment'=>null]);
       return back();
     }
 
@@ -165,5 +164,34 @@ class MasterController extends Controller
       return view('master/master_home')->with('headers',$headers)
                                        ->with('page',$page)
                                        ->with('NUM_PAGE',$NUM_PAGE);
+      }
+
+      public function score_total(Request $request)
+      {
+        $NUM_PAGE = 5;
+        $headers = Header::where('master_id',Auth::user()->id)
+                         ->orderBy('updated_at','desc')
+                         ->paginate($NUM_PAGE);
+        $page = $request->input('page');
+        $page = ($page != null)?$page:1;
+
+          return view('master/master_total')->with('headers',$headers)
+                                           ->with('page',$page)
+                                           ->with('NUM_PAGE',$NUM_PAGE);
+
+      }
+
+      public function block(Request $request,$id)
+      {
+        $note = $request->note;
+        if($note!=null){
+        $header = Header::findOrFail($id);
+        $header->update(['status' => '0','comment' => $note]);
+          return back();
+        }
+        else{
+          return back();
+        }
+
       }
 }

@@ -75,6 +75,7 @@
 <div class="container">
   <ol class="breadcrumb">
   				<li class="breadcrumb-item"><a href="{{url('/header')}}">หน้าแรก</a></li>
+          <li class="breadcrumb-item"><a href="{{url('/header/total')}}">รายการคะแนนเสียงทั้งหมด</a></li>
   				<li class="breadcrumb-item active">กรอกข้อมูลเขตการดูแล</li>
   </ol>
   <div class="card">

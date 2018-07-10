@@ -63,7 +63,6 @@ class AdminController extends Controller
                    ->orderBy('updated_at','desc')
                    ->paginate($NUM_PAGE);
       $query = DB::select('SELECT areas.area_name,scores.admin_id,SUM(scores.score) AS sumscore FROM scores LEFT JOIN areas ON scores.area_id = areas.id GROUP BY admin_id,area_name');
-
       $page = $request->input('page');
       $page = ($page != null)?$page:1;
       $admin = Admin::findOrFail(Auth::user()->id);
@@ -85,6 +84,7 @@ class AdminController extends Controller
       $areas = Area::where('area_name','like','%'.$key.'%')
                    ->orderBy('updated_at','desc')
                    ->paginate($NUM_PAGE);
+      $query = DB::select('SELECT areas.area_name,scores.admin_id,SUM(scores.score) AS sumscore FROM scores LEFT JOIN areas ON scores.area_id = areas.id GROUP BY admin_id,area_name');
       $page = $request->input('page');
       $page = ($page != null)?$page:1;
       $admin = Admin::findOrFail(Auth::user()->id);
@@ -95,7 +95,8 @@ class AdminController extends Controller
                                      ->with('header',$header)
                                      ->with('page',$page)
                                      ->with('NUM_PAGE',$NUM_PAGE)
-                                     ->with('allareas',$allareas);
+                                     ->with('allareas',$allareas)
+                                     ->with('query',$query);
 
     }
     public function profile()

@@ -15,7 +15,7 @@
 </ul><br>
 @if(isset($scores))
   <br>
-  <form action="{{url('admin/action')}}" method="POST" role="form">
+    <form action="{{url('admin/action')}}" method="POST" role="form">
         <div class="col-md-12 ">
           <div align="right">
             <!-- admin -->

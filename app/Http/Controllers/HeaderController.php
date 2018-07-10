@@ -10,6 +10,7 @@ use App\Admin;
 use App\Header;
 use App\Area;
 use App\Score;
+use DB;
 
 class HeaderController extends Controller
 {
@@ -63,7 +64,7 @@ class HeaderController extends Controller
       $header = Header::findOrFail(Auth::user()->id);
       $page = $request->input('page');
       $page = ($page != null)?$page:1;
-      
+
       return view('header/header_home')->with('admins',$admins)
                                        ->with('header',$header)
                                        ->with('page',$page)
@@ -155,6 +156,7 @@ class HeaderController extends Controller
         $areas = Area::where('admin_id',$request->admin_id)
                      ->orderBy('updated_at','desc')
                      ->paginate($NUM_PAGE);
+        $scores = DB::select('SELECT `score`,`area_id` FROM `scores`');
 
         $page = $request->input('page');
         $page = ($page != null)?$page:1;
@@ -164,7 +166,8 @@ class HeaderController extends Controller
                                       ->with('header',$header)
                                       ->with('page',$page)
                                       ->with('admin',$admin)
-                                      ->with('NUM_PAGE',$NUM_PAGE);
+                                      ->with('NUM_PAGE',$NUM_PAGE)
+                                      ->with('scores',$scores);
     }
 
     public function deletearea($area_id)
@@ -234,5 +237,13 @@ class HeaderController extends Controller
                                        ->with('header',$header)
                                        ->with('page',$page)
                                        ->with('NUM_PAGE',$NUM_PAGE);
+    }
+
+    public function score_total()
+    {
+      $admins = Admin::where('header_id',Auth::user()->id)->get();
+      $header = Header::findOrFail(Auth::user()->id);
+      return view('header/header_total')->with('admins',$admins)
+                                        ->with('header',$header);
     }
 }
