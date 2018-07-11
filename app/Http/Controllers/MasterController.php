@@ -10,6 +10,7 @@ use App\Admin;
 use App\Area;
 use Redirect;
 use Hash;
+use DB;
 
 
 class MasterController extends Controller
@@ -141,6 +142,7 @@ class MasterController extends Controller
         $areas = Area::where('admin_id',$id)
                       ->orderBy('updated_at','desc')
                       ->paginate($NUM_PAGE);
+        $scores = DB::select('SELECT `score`,`area_id` FROM `scores`');
         $page = $request->input('page');
         $page = ($page != null)?$page:1;
         $admin = Admin::findOrfail($id);
@@ -148,7 +150,8 @@ class MasterController extends Controller
         return view('master/master_showarea')->with('areas',$areas)
                                              ->with('header',$header)
                                              ->with('page',$page)
-                                             ->with('NUM_PAGE',$NUM_PAGE);
+                                             ->with('NUM_PAGE',$NUM_PAGE)
+                                             ->with('scores',$scores);
     }
 
     public function search(Request $request)
@@ -192,6 +195,6 @@ class MasterController extends Controller
         else{
           return back();
         }
-
       }
+
 }

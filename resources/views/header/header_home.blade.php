@@ -104,12 +104,12 @@
         <div class="form-group row">
           <label class="col-sm-4 col-form-label">ชื่อ</label>
           <div class="col-sm-8">
-              <input class="form-control" name="key" type="text">
+              <input class="form-control" name="key" type="text" autocomplete="off">
           </div>
       </div>
       <div class="form-group row mb-0">
       <div class="col-sm-12">
-					<input type="submit" class="btn btn-block btn-primary" value="ค้นหา">
+					<input type="submit" class="btn btn-block btn-primary" value="ค้นหา" >
 				</div>
       </div>
       </div>

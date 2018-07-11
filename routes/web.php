@@ -43,6 +43,7 @@ Route::group(['middleware' => ['auth']], function () {
   Route::post('master/changePassword','MasterController@changePassword')->name('changePassword');
   Route::get('master/total','MasterController@score_total');
   Route::post('master/block/{id}','MasterController@block');
+  Route::post('master/searchadmin','MasterController@search_admin');
 });
 //admin
 Route::group(['prefix' => 'admin'], function(){

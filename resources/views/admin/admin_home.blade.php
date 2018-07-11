@@ -269,7 +269,7 @@
       <div class="form-group row">
         <label class="col-sm-4 col-form-label">ชื่อเขต</label>
         <div class="col-sm-8">
-            <input type="text" class="form-control" name="key">
+            <input type="text" class="form-control" name="key" autocomplete="off">
        </div>
 
     </div>
